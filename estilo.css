@@ -1,118 +1,56 @@
-body {
-    background-image: url('ruta-a-tu-patron-de-fondo.jpg'); /* Añade aquí la ruta al patrón asiático u oriental */
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-header {
-    background: #16222A;
-    color: #ecf0f1;
-    padding: 1rem 0;
-    margin: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 0px 25px rgba(0,0,0,0.2);
-    position: relative;
-    width: calc(100% - 40px);
-    text-align: center;
-}
-
-main {
-    padding: 15px;
-}
-
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    flex: 1 1 150px; /* Ajusta esto para que las imágenes sean más pequeñas en la galería */
-    max-width: 150px; /* Ajusta este valor según lo que necesites */
-    max-height: 150px; /* Ajusta este valor según lo que necesites */
-}
-
-.gallery-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Mantiene las imágenes dentro del contenedor sin distorsionarlas */
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover .gallery-img {
-    transform: scale(1.05); /* Ligera ampliación al pasar el ratón sobre la imagen */
-}
-
-.gallery-item-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 10px;
-    text-align: center;
-    visibility: hidden; /* Oculta el texto hasta que se haga clic */
-}
-
-.gallery-item:hover .gallery-item-content {
-    visibility: visible; /* Muestra el texto cuando se pasa el ratón sobre la imagen */
-}
-
+/* Estilo para el modal */
 .modal {
-    display: none;
+    display: none; /* Asegúrate de que esté oculto por defecto */
     position: fixed;
-    z-index: 1000; /* Asegúrate de que el modal esté sobre otros elementos */
+    z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px; /* Añade un pequeño padding para evitar que la imagen toque los bordes */
+    background-color: rgba(0,0,0,0.8); /* Fondo oscuro para el modal */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
 }
 
+/* Estilo para la imagen del modal */
 #imagenModal {
-    max-width: 80%;
+    max-width: 90%;
     max-height: 80%;
     transition: transform 0.3s ease;
+    border: 5px solid #fff; /* Agrega un borde blanco para destacarse */
 }
 
+/* Estilo para el texto del modal */
 #textoModal {
-    color: #ccc;
+    color: #fff; /* Color del texto blanco para contraste */
     text-align: center;
     padding: 10px;
+    width: 90%; /* Ajusta el ancho según sea necesario */
+    max-width: 800px;
 }
 
+/* Estilo para el botón de cerrar */
 #cerrar {
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #f1f1f1;
+    color: #fff;
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 1001; /* Asegúrate de que el botón esté sobre el modal */
+    transition: color 0.3s ease;
 }
 
+/* Cambio de color al pasar el ratón sobre el botón de cerrar */
 #cerrar:hover {
     color: #bbb;
 }
 
+/* Asegúrate de que el modal y su contenido sean visibles en dispositivos móviles */
 @media only screen and (max-width: 700px) {
     #imagenModal {
         width: 100%;
+        height: auto; /* Ajusta la altura automáticamente */
     }
 }
