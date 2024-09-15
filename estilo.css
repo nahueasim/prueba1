@@ -95,27 +95,22 @@ main {
 }
 
 #cerrar {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 2; /* Asegúrate de que el botón esté sobre otros elementos */
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
 }
-
-#cerrar:hover {
-    color: #bbb;
+#cerrar:hover,
+#cerrar:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
 }
-
-@media (max-width: 700px) {
-    .gallery-item {
-        flex: 1 1 100%;
-        max-width: 100%;
-        max-height: 300px; /* Ajusta el tamaño máximo para pantallas pequeñas */
-    }
-    #imagenModal {
-        width: 100%;
-    }
+@media only screen and (max-width: 700px){
+  #imagenModal {
+    width: 100%;
+  }
 }
