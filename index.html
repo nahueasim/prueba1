@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japón, el país del sol naciente</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Japón, el país del sol naciente</h1>
+    <hr/>
+</header>
+<div id="modalFoto" class="modal">
+  <span id="cerrar">&times;</span>
+  <div class="modal-content">
+    <img id="imagenModal" src="" alt="">
+    <div id="textoModal"></div>
+  </div>
+</div>
+<main>
+    <div class="container mt-4">
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="./imagenes/ajedrez.jpg" alt="Estudio In the Making de Harry Potter">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Estudio Harry Potter</span>
+                    <h5>Pieza del Rey</h5>
+                    <p>Una pieza clave en el estudio de Harry Potter. La pieza del Rey, que es el símbolo del poder en el juego de ajedrez.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./imagenes/castillo-mario.jpg" alt="Castillo de Peach">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Universal Studios</span>
+                    <h5>Castillo de Peach</h5>
+                    <p>El icónico castillo de Peach en Universal Studios, un lugar de ensueño para los fanáticos de Nintendo.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./imagenes/dragones.jpg" alt="Dragones en Kennin-ji">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Kennin-ji</span>
+                    <h5>Dragones en Kioto</h5>
+                    <p>Dos majestuosos dragones en el templo zen de Kennin-ji, el más antiguo de Kioto, Japón.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./imagenes/gundam.jpg" alt="Gundam en Odaiba">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Odaiba</span>
+                    <h5>Gundam Colosal</h5>
+                    <p>Un imponente Gundam en Odaiba, Tokio, una maravilla tecnológica y de diseño.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./imagenes/one-piece.jpg" alt="One Piece - Saga de Wano">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">One Piece</span>
+                    <h5>Saga de Wano</h5>
+                    <p>Uno de los mangas más populares del mundo, celebrando la saga de Wano, el país de los samuráis.</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="./imagenes/piedras.jpg" alt="Piedras Balanceadas">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Cultura Budista</span>
+                    <h5>Balance en Japón</h5>
+                    <p>Las piedras balanceadas representan el equilibrio y la armonía en la cultura budista japonesa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+   &copy; 2024 - Todos los derechos reservados. Las imágenes son propiedad de sus respectivos autores.
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    var modal = document.getElementById("modalFoto");
+    var cerrar = document.getElementById("cerrar");
+    var imagenModal = document.getElementById("imagenModal");
+    var textoModal = document.getElementById("textoModal");
+    cerrar.onclick = function() {
+      modal.style.display = "none";
+      modal.style.opacity = "0";
+    }
+    modal.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+        modal.style.opacity = "0";
+      }
+    }
+    document.querySelectorAll(".gallery-item img").forEach(function(img) {
+        img.addEventListener("click", function() {
+            modal.style.display = "flex";
+            modal.style.opacity = "1";
+            imagenModal.src = img.src;
+            textoModal.innerHTML = img.nextElementSibling.innerHTML;
+        });
+    });
+</script>
+</body>
+</html>
