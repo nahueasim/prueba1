@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de arte DyDWeb</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos para la galería */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+        }
+        .gallery-item-content {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 100%;
+            padding: 10px;
+        }
+        .gallery-item-wide {
+            grid-column: span 2;
+        }
+        .gallery-item-tall {
+            grid-row: span 2;
+        }
+        .gallery-item-very-wide {
+            grid-column: span 3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 80%;
+        }
+        .modal #cerrar {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 36px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Galería de arte DyDWeb</h1>
+    <hr/>
+</header>
+<div id="modalFoto" class="modal">
+  <span id="cerrar">&times;</span>
+  <img id="imagenModal" alt="Imagen ampliada">
+  <div id="textoModal"></div>
+</div>
+<main>
+    <div class="container mt-4">
+        <div class="gallery">
+            <div class="gallery-item gallery-item-tall">
+                <img src="./imagenes/ajedrez.jpg" alt="Estudio de Harry Potter">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Estudio</span>
+                    <h5>In the Making</h5>
+                    <p>Imagen del Rey del ajedrez, inspirada en el estudio In the Making de Harry Potter.</p>
+                </div>
+            </div>
+            <div class="gallery-item gallery-item-wide">
+                <img src="./imagenes/castillo-mario.jpg" alt="Castillo de Peach">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Universal Studios</span>
+                    <h5>Castillo de Peach</h5>
+                    <p>Un icónico castillo de la franquicia de Nintendo, capturado en Universal Studios.</p>
+                </div>
+            </div>
+            <div class="gallery-item gallery-item-tall">
+                <img src="./imagenes/dragones.jpg" alt="Dragones en Kioto">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Templo Zen</span>
+                    <h5>Dragones en Kennin-ji</h5>
+                    <p>Dragones en el templo zen de Kioto, el más antiguo de Japón.</p>
+                </div>
+            </div>
+            <div class="gallery-item gallery-item-wide">
+                <img src="./imagenes/gundam.jpg" alt="Gundam en Odaiba">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Odaiba</span>
+                    <h5>Gundam Colosal</h5>
+                    <p>Gundam ubicado en la ciudad de Odaiba, un impresionante espectáculo de ingeniería.</p>
+                </div>
+            </div>
+            <div class="gallery-item gallery-item-tall">
+                <img src="./imagenes/one-piecej.jpg" alt="One Piece Saga de Wano">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">One Piece</span>
+                    <h5>Saga de Wano</h5>
+                    <p>Promocionando la saga de Wano, el país de los samurai del famoso manga One Piece.</p>
+                </div>
+            </div>
+            <div class="gallery-item gallery-item-tall">
+                <img src="./imagenes/piedras.jpg" alt="Piedras en equilibrio">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Cultura Budista</span>
+                    <h5>Equilibrio y Balance</h5>
+                    <p>Imagen de piedras balanceadas, representando el equilibrio en la cultura budista japonesa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+   &copy; 2024 - Algunos derechos reservados. Las imágenes son royalty free y pueden reutilizarse.
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    var modal = document.getElementById("modalFoto");
+    var cerrar = document.getElementById("cerrar");
+    var imagenModal = document.getElementById("imagenModal");
+    var textoModal = document.getElementById("textoModal");
+    cerrar.onclick = function() {
+      modal.style.display = "none";
+    }
+    modal.onclick = function() {
+      modal.style.display = "none";
+    }
+    document.querySelector(".gallery").querySelectorAll("div").forEach(
+    el => el.addEventListener(
+      "click",
+      event => {
+        var img = el.querySelector("img");
+        modal.style.display = "block";
+        imagenModal.src = img.src;
+        textoModal.innerHTML = el.querySelector("div").innerHTML;
+      }
+    )
+  );
+</script>
+</body>
+</html>
