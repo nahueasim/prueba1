@@ -38,11 +38,13 @@ main {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     flex: 1 1 200px; /* Ajusta esto para que las imágenes sean más pequeñas en la galería */
     max-width: 200px;
+    max-height: 200px;
 }
 
 .gallery-img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Mantiene las imágenes dentro del contenedor sin distorsionarlas */
     transition: transform 0.3s ease;
 }
 
@@ -59,6 +61,11 @@ main {
     color: white;
     padding: 10px;
     text-align: center;
+    visibility: hidden; /* Oculta el texto hasta que se haga clic */
+}
+
+.gallery-item:hover .gallery-item-content {
+    visibility: visible; /* Muestra el texto cuando se pasa el ratón sobre la imagen */
 }
 
 .modal {
@@ -96,6 +103,7 @@ main {
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+    z-index: 2; /* Asegúrate de que el botón esté sobre otros elementos */
 }
 
 #cerrar:hover {
@@ -106,6 +114,7 @@ main {
     .gallery-item {
         flex: 1 1 100%;
         max-width: 100%;
+        max-height: 300px; /* Ajusta el tamaño máximo para pantallas pequeñas */
     }
     #imagenModal {
         width: 100%;
