@@ -4,7 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Japón, el país del sol naciente</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <style>
+        body {
+            background-image: linear-gradient(-45deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        header, footer {
+            background: #16222A;
+            color: #ecf0f1;
+            padding: 1rem 0;
+            margin: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+            width: 95vw;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 8px;
+            border: 2px solid #444;
+            display: inline-block;
+        }
+
+        footer {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: #fff;
+            aspect-ratio: 1 / 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .gallery-item img:hover {
+            opacity: 0.7;
+        }
+
+        .gallery-item-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 3vh;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        #imagenModal {
+            width: 100%;
+            border-radius: 8px;
+            animation: zoom 0.6s;
+        }
+
+        #textoModal {
+            margin-top: 15px;
+            text-align: center;
+            color: #333;
+            padding: 10px 0;
+        }
+
+        #cerrar {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #cerrar:hover,
+        #cerrar:focus {
+            color: #bbb;
+            cursor: pointer;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        @media only screen and (max-width: 700px){
+            #imagenModal {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 990px) {
+            header, footer {
+                margin: 20px 0;
+                width: 100vw;
+            }
+            .gallery-item-wide, .gallery-item-very-wide, .gallery-item-tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            .gallery-item-wide img, .gallery-item-very-wide img, .gallery-item-tall img {
+                min-height: 90%;
+                max-width: 200%;
+                width: auto;
+            }
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -69,6 +226,14 @@
                     <p>Las piedras balanceadas representan el equilibrio y la armonía en la cultura budista japonesa.</p>
                 </div>
             </div>
+            <div class="gallery-item">
+                <img src="./imagenes/templo-dorado.jpg" alt="Castillo del Templo Dorado">
+                <div class="gallery-item-content">
+                    <span class="badge bg-primary">Templo Dorado</span>
+                    <h5>Castillo del Templo Dorado</h5>
+                    <p>El majestuoso Castillo del Templo Dorado, un tesoro arquitectónico y cultural.</p>
+                </div>
+            </div>
         </div>
     </div>
 </main>
@@ -90,14 +255,4 @@
         modal.style.opacity = "0";
       }
     }
-    document.querySelectorAll(".gallery-item img").forEach(function(img) {
-        img.addEventListener("click", function() {
-            modal.style.display = "flex";
-            modal.style.opacity = "1";
-            imagenModal.src = img.src;
-            textoModal.innerHTML = img.nextElementSibling.innerHTML;
-        });
-    });
-</script>
-</body>
-</html>
+    document.querySelectorAll
